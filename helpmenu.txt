@@ -1,0 +1,85 @@
+Sosa - prints love sosa lyrics
+beamed - advert for sb
+cleardms - clears dms
+dark - messages dark invite
+prefix - switches Prefix
+stab - dont ever fucking use this command
+nigger - prints {user} is a nigger
+cunt - prints {user} is a cunt
+gping - ghost pings user
+clear - send empty text block
+genname - generates name of 2 random people in server
+lmgtfy - uses lmgtfy somehow
+login - logs into token
+botlogin - logs in to bot
+address - gives weird address sthingy from input
+dc - disconnects user from vc while bot is Active
+dcoff - turns the disconnect feature off
+weather - shows weather in given city
+bitly - shortens url to a bitly link
+cuttly - shortens url to a cuttly link
+cat - shows image of a cat
+dog - shows image of a dog
+fox - shows image of a fox
+encode - encodes given text
+decode - decodes given text
+ebay-view - bots ebay views
+geoip - gives the location of an ip
+pingweb - pings website to see if its up
+tweet - turns text into a tweet
+revav - reverse searches a users pfp
+av - shows a users pfp
+roleinfo - shows info about given role
+whois - gives info about given user
+minesweeper - play a game of minesweeper
+combine - combines 2 different names together
+1337-speak - turns text into 1337 speak
+devowel - devowels given text
+blank - turns users profile blank
+pfpsteal - steals users pfp
+set-pfp - sets pfp to a image on a url
+dick - shows how big a users dick is
+hypesquad - changes users hypesquad badge
+tokenfuck - fucks someones token
+masslogin - mass logs in to an account
+massconnect - adds connections to users account
+fakenet - adds connections to users account
+tokeninfo - shows info about about a given token
+copy - copies server user is in
+destroy - destroys server
+dmall - dms all users in a server
+massban - bans all users in server
+masskick - kicks all users in server
+massrole - creates a large amount of roles in the server
+masschannel - creates a large amount of channels in the server
+delchannels - deletes all channels in server
+delroles - deletes all roles from server
+massunban - mass unbans all users from server
+spam - spams message in server
+dm - dms given user a message
+get-color - gives hex code of color
+tinyurl - shortens url with tinyurl
+rainbow - turns a roles color rainbow
+8ball - uses an 8 ball to answer given question
+slot - lets you use a slot machine
+joke - shows user a joke
+auto-bump - auto bumps a server in specified channel
+tts - gives a audio file of the given message
+upper - turns message uppercase
+guildicon - gives the servers icon
+backup-f - backs up friends list
+first-message - shows the first message in the channel
+mac - shows info about given MAC address
+abc - edits message through the alphabet
+crypto - gives info about given crypto
+topic - gives a topic to discuss
+wyr - gives a would you rather question
+hastebin - uploads message to hastebin
+ascii - turns text into ascii
+anal - gives anal gif
+erofeet - gives erotic feet gif
+feet - gives feet gif
+hentai - gives hentai gif
+femdom - gives femdom gif
+boobs - gives boobs gif
+blowjob - gives blowjob gif
