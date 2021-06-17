@@ -1531,11 +1531,13 @@ async def destroy(ctx, user): # b'\xfc'
 
 @Beamed.command(pass_context=True)
 async def chnick(ctx, nick):
+    await ctx.message.delete()
     member = ctx.author
     await member.edit(nick=nick)
 
 @Beamed.command(pass_context=True)
 async def nickchange(ctx, member: discord.Member, nick):
+    await ctx.message.delete()
     await member.edit(nick=nick)
 
 
