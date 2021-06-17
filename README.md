@@ -11,4 +11,4 @@
 - Q: **`TypeError: __new__() got an unexpected keyword argument 'deny_new'`**
 - A: This error occured on an old installation of discord.py to fix simply run :`pip install -U discord.py` this updates discord.py!
 - Q: **`Cannot run the file even though the batch files gave no errors`**
-- A: Install Python from the microsoft store and run the file through cmd with the command 'python Beamed.py' whilst in the Beamed directory
+- A: Install Python from the microsoft store and run the file through cmd with the command 'python Beamed.py' whilst in the Beamed directory, but make sure you have python 3.8
