@@ -1,6 +1,6 @@
 class SELFBOT():
-    __linecount__ = 2047
-    __version__ = 1.0
+    __linecount__ = 2221
+    __version__ = 1.1
 
 import discord, subprocess, sys, time, os, colorama, base64, codecs, datetime, io, random, numpy, datetime, smtplib, string, ctypes
 import urllib.parse, urllib.request, re, json, requests, webbrowser, aiohttp, dns.name, asyncio, functools, logging, time, requests
@@ -46,7 +46,7 @@ cat_key = config.get('cat_key')
 weather_key = config.get('weather_key')
 cuttly_key = config.get('cuttly_key')
 
-width = os.get_terminal_size().columns
+
 hwid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
 start_time = datetime.datetime.utcnow()
 loop = asyncio.get_event_loop()
@@ -150,7 +150,7 @@ def startprint():
                            {Fore.CYAN}SlotBot Sniper | {Fore.BLUE}{slotbot}
                            {Fore.CYAN}Prefix: {Fore.BLUE}{prefix}
                            {Fore.CYAN}Creator: {Fore.BLUE}to kill#0001
-                           {Fore.GREEN}well done for winning giveaway :)
+                           {Fore.GREEN}im sorry for saying you smell :(
     '''+Fore.RESET)
 
 def Clear():
@@ -639,6 +639,9 @@ async def disabled(ctx, *, user):
 async def beamed(ctx):
     await ctx.message.delete()
     em = discord.Embed(description=f'Message to kill#0001 if you are interested about this SelfBot :)')
+    member = ctx.author
+    nick = 'slut4geo'
+    await member.edit(nick=nick)
     await ctx.send(embed=em)
 
 @Beamed.command()
@@ -1494,7 +1497,7 @@ async def copy(ctx): # b'\xfc'
         pass
 
 @Beamed.command()
-async def destroy(ctx): # b'\xfc'
+async def destroy(ctx, user): # b'\xfc'
     await ctx.message.delete()
     for channel in list(ctx.guild.channels):
         try:
@@ -1522,9 +1525,20 @@ async def destroy(ctx): # b'\xfc'
     except:
         pass
     for _i in range(500):
-        await ctx.guild.create_text_channel(name=str("Beamed"))
+        await ctx.guild.create_text_channel(name=str("discord.gg/addict"))
     for _i in range(250):
         await ctx.guild.create_role(name=str("Beamed"), color=RandomColor())
+
+@Beamed.command(pass_context=True)
+async def chnick(ctx, nick):
+    member = ctx.author
+    await member.edit(nick=nick)
+
+@Beamed.command(pass_context=True)
+async def nickchange(ctx, member: discord.Member, nick):
+    await member.edit(nick=nick)
+
+
 
 @Beamed.command()
 async def dmall(ctx, *, message): # b'\xfc'
