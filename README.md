@@ -1,5 +1,5 @@
 
-# Q&A
+# Q&A 
 - Q: **`Getting errors on running install.bat file`**
 - A: Just run the error remover.bat file as it should allow for all modules to be installed correctly
 - Q: **`SSL Certificate Error`**
