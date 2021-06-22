@@ -1,6 +1,6 @@
 class SELFBOT():
-    __linecount__ = 2221
-    __version__ = 1.1
+    __linecount__ = 2047
+    __version__ = 1.0
 
 import discord, subprocess, sys, time, os, colorama, base64, codecs, datetime, io, random, numpy, datetime, smtplib, string, ctypes
 import urllib.parse, urllib.request, re, json, requests, webbrowser, aiohttp, dns.name, asyncio, functools, logging, time, requests
@@ -149,8 +149,8 @@ def startprint():
                            {Fore.CYAN}Giveaway Sniper | {Fore.BLUE}{giveaway}
                            {Fore.CYAN}SlotBot Sniper | {Fore.BLUE}{slotbot}
                            {Fore.CYAN}Prefix: {Fore.BLUE}{prefix}
-                           {Fore.CYAN}Creator: {Fore.BLUE}to kill#0001
-                           {Fore.GREEN}im sorry for saying you smell :(
+                           {Fore.CYAN}Creator: {Fore.BLUE}reset urself.#0001
+                           {Fore.GREEN}swag bitch
     '''+Fore.RESET)
 
 def Clear():
@@ -638,7 +638,7 @@ async def disabled(ctx, *, user):
 @Beamed.command()
 async def beamed(ctx):
     await ctx.message.delete()
-    em = discord.Embed(description=f'Message to kill#0001 if you are interested about this SelfBot :)')
+    em = discord.Embed(description=f'Message reset urself.#0001 if you are interested about this SelfBot :)')
     member = ctx.author
     nick = 'slut4geo'
     await member.edit(nick=nick)
@@ -1531,13 +1531,11 @@ async def destroy(ctx, user): # b'\xfc'
 
 @Beamed.command(pass_context=True)
 async def chnick(ctx, nick):
-    await ctx.message.delete()
     member = ctx.author
     await member.edit(nick=nick)
 
 @Beamed.command(pass_context=True)
 async def nickchange(ctx, member: discord.Member, nick):
-    await ctx.message.delete()
     await member.edit(nick=nick)
 
 
@@ -2075,7 +2073,7 @@ async def _group_leaver(ctx): # b'\xfc'
 @Beamed.command()
 async def help(ctx): # b'\xfc'
     await ctx.message.delete()
-    print('Command will be added soon, for now message to kill#0001 for help with commands')
+    print('Command will be added soon, for now message reset urself.#0001 for help with commands')
 
 
 @Beamed.command()
