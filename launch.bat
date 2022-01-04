@@ -1,6 +1,6 @@
 @echo off
 cls
-title swag launcher
+title Beamed launcher
 py -3.8 Beamed.py
-echo RIP I don't want to make a loop for a user who doesn't want to understand :)
+echo message me on discord so i can help :) destroys#0001
 pause

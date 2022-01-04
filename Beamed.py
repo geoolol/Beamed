@@ -1,10 +1,11 @@
 class SELFBOT():
-    __linecount__ = 2047
-    __version__ = 1.0
+    __linecount__ = 2228
+    __version__ = 2.0
 
 import discord, subprocess, sys, time, os, colorama, base64, codecs, datetime, io, random, numpy, datetime, smtplib, string, ctypes
 import urllib.parse, urllib.request, re, json, requests, webbrowser, aiohttp, dns.name, asyncio, functools, logging, time, requests
-import textwrap
+import textwrap, ctypes
+
 
 from discord.ext import (
     commands,
@@ -23,6 +24,7 @@ from PIL import Image
 import pyPrivnote as pn
 from gtts import gTTS
 from textwrap import wrap
+
 
 ctypes.windll.kernel32.SetConsoleTitleW(f'[Beamed Selfbot v{SELFBOT.__version__}] | Loading...')
 
@@ -47,7 +49,7 @@ weather_key = config.get('weather_key')
 cuttly_key = config.get('cuttly_key')
 
 
-hwid = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
+
 start_time = datetime.datetime.utcnow()
 loop = asyncio.get_event_loop()
 
@@ -143,15 +145,18 @@ def startprint():
                             ╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚═════╝░
 
 
-                           {Fore.CYAN}Beamed {SELFBOT.__version__} | {Fore.BLUE}Logged in as: {Beamed.user.name}#{Beamed.user.discriminator} {Fore.CYAN}| ID: {Fore.BLUE}{Beamed.user.id}
+                           {Fore.CYAN}Beamed {SELFBOT.__version__} | {Fore.BLUE}Logged in as: {Fore.RED}{Beamed.user.name}#{Fore.WHITE}{Beamed.user.discriminator} {Fore.CYAN}| ID: {Fore.RED}{Beamed.user.id}
+                           {Fore.CYAN}Number of servers: | {Fore.BLUE}{len(Beamed.guilds)}
                            {Fore.CYAN}Privnote Sniper | {Fore.BLUE}{privnote}
                            {Fore.CYAN}Nitro Sniper | {Fore.BLUE}{nitro}
                            {Fore.CYAN}Giveaway Sniper | {Fore.BLUE}{giveaway}
                            {Fore.CYAN}SlotBot Sniper | {Fore.BLUE}{slotbot}
-                           {Fore.CYAN}Prefix: {Fore.BLUE}{prefix}
-                           {Fore.CYAN}Creator: {Fore.BLUE}reset urself.#0001
-                           {Fore.GREEN}swag bitch
+                           {Fore.CYAN}Prefix: {Fore.BLUE}{config.get("prefix")}
+                           {Fore.CYAN}Commands: {Fore.BLUE}{len(Beamed.commands)}
+                           {Fore.CYAN}Creator: {Fore.RED}geo#3000
+                           {Fore.GREEN}Merry Christmas :)
     '''+Fore.RESET)
+
 
 def Clear():
     os.system('cls')
@@ -193,12 +198,12 @@ if token == config.get('token'):
 
 
 
-                        {Fore.RED}██╗░░░░░░█████╗░░█████╗░██████╗░██╗███╗░░██╗░██████╗░░░░
-                        {Fore.RED}██║░░░░░██╔══██╗██╔══██╗██╔══██╗██║████╗░██║██╔════╝░░░░
-                        {Fore.RED}██║░░░░░██║░░██║███████║██║░░██║██║██╔██╗██║██║░░██╗░░░░
-                        {Fore.RED}██║░░░░░██║░░██║██╔══██║██║░░██║██║██║╚████║██║░░╚██╗░░░
-                        {Fore.RED}███████╗╚█████╔╝██║░░██║██████╔╝██║██║░╚███║╚██████╔╝██╗
-                        {Fore.RED}╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝
+                        {Fore.GREEN}██╗░░░░░░█████╗░░█████╗░██████╗░██╗███╗░░██╗░██████╗░░░░
+                        {Fore.GREEN}██║░░░░░██╔══██╗██╔══██╗██╔══██╗██║████╗░██║██╔════╝░░░░
+                        {Fore.GREEN}██║░░░░░██║░░██║███████║██║░░██║██║██╔██╗██║██║░░██╗░░░░
+                        {Fore.GREEN}██║░░░░░██║░░██║██╔══██║██║░░██║██║██║╚████║██║░░╚██╗░░░
+                        {Fore.GREEN}███████╗╚█████╔╝██║░░██║██████╔╝██║██║░╚███║╚██████╔╝██╗
+                        {Fore.GREEN}╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝
 
 
             '''+Fore.RESET)
@@ -227,12 +232,12 @@ if token == config.get('token'):
 
 
 
-                        {Fore.RED}██╗░░░░░░█████╗░░█████╗░██████╗░██╗███╗░░██╗░██████╗░░░░░░░░░░
-                        {Fore.RED}██║░░░░░██╔══██╗██╔══██╗██╔══██╗██║████╗░██║██╔════╝░░░░░░░░░░
-                        {Fore.RED}██║░░░░░██║░░██║███████║██║░░██║██║██╔██╗██║██║░░██╗░░░░░░░░░░
-                        {Fore.RED}██║░░░░░██║░░██║██╔══██║██║░░██║██║██║╚████║██║░░╚██╗░░░░░░░░░
-                        {Fore.RED}███████╗╚█████╔╝██║░░██║██████╔╝██║██║░╚███║╚██████╔╝██╗██╗██╗
-                        {Fore.RED}╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝╚═╝╚═╝
+                        {Fore.GREEN}██╗░░░░░░█████╗░░█████╗░██████╗░██╗███╗░░██╗░██████╗░░░░░░░░░░
+                        {Fore.GREEN}██║░░░░░██╔══██╗██╔══██╗██╔══██╗██║████╗░██║██╔════╝░░░░░░░░░░
+                        {Fore.GREEN}██║░░░░░██║░░██║███████║██║░░██║██║██╔██╗██║██║░░██╗░░░░░░░░░░
+                        {Fore.GREEN}██║░░░░░██║░░██║██╔══██║██║░░██║██║██║╚████║██║░░╚██╗░░░░░░░░░
+                        {Fore.GREEN}███████╗╚█████╔╝██║░░██║██████╔╝██║██║░╚███║╚██████╔╝██╗██╗██╗
+                        {Fore.GREEN}╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝╚═╝╚═╝
 
 
 
@@ -362,6 +367,10 @@ def Nitro():
     code = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
     return f'https://discord.gift/{code}'
 
+def randInv():
+    inv = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+    return f'https://discord.gg/{inv}'
+
 def RandomColor():
     randcolor = discord.Color(random.randint(0x000000, 0xFFFFFF))
     return randcolor
@@ -380,6 +389,49 @@ Beamed.remove_command('help')
 
 
 
+def clearScreen():
+    if giveaway_sniper == True:
+        giveaway = "Active"
+    else:
+        giveaway = "Disabled"
+
+    if nitro_sniper == True:
+        nitro = "Active"
+    else:
+        nitro = "Disabled"
+
+    if slotbot_sniper == True:
+        slotbot = "Active"
+    else:
+        slotbot = "Disabled"
+
+    if privnote_sniper == True:
+        privnote = "Active"
+    else:
+        privnote = "Disabled"
+
+    print(f'''{Fore.RESET}
+
+                            ██████╗░███████╗░█████╗░███╗░░░███╗███████╗██████╗░
+                            ██╔══██╗██╔════╝██╔══██╗████╗░████║██╔════╝██╔══██╗
+                            ██████╦╝█████╗░░███████║██╔████╔██║█████╗░░██║░░██║
+                            ██╔══██╗██╔══╝░░██╔══██║██║╚██╔╝██║██╔══╝░░██║░░██║
+                            ██████╦╝███████╗██║░░██║██║░╚═╝░██║███████╗██████╔╝
+                            ╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚═════╝░
+
+
+                           {Fore.CYAN}Beamed {SELFBOT.__version__} | {Fore.BLUE}Logged in as: {Fore.RED}{Beamed.user.name}#{Fore.WHITE}{Beamed.user.discriminator} {Fore.CYAN}| ID: {Fore.RED}{Beamed.user.id}
+                           {Fore.CYAN}Number of servers: | {Fore.BLUE}{len(Beamed.guilds)}
+                           {Fore.CYAN}Privnote Sniper | {Fore.BLUE}{privnote}
+                           {Fore.CYAN}Nitro Sniper | {Fore.BLUE}{nitro}
+                           {Fore.CYAN}Giveaway Sniper | {Fore.BLUE}{giveaway}
+                           {Fore.CYAN}SlotBot Sniper | {Fore.BLUE}{slotbot}
+                           {Fore.CYAN}Prefix: {Fore.BLUE}{config.get("prefix")}
+                           {Fore.CYAN}Commands: {Fore.BLUE}{len(Beamed.commands)}
+                           {Fore.CYAN}Creator: {Fore.RED}geo#3000
+                           {Fore.GREEN}Merry Christmas :)
+    '''+Fore.RESET)
+
 @tasks.loop(seconds=3)
 async def btc_status():
     r = requests.get('https://api.coindesk.com/v1/bpi/currentprice/btc.json').json()
@@ -387,9 +439,21 @@ async def btc_status():
     await asyncio.sleep(3)
     btc_stream = discord.Streaming(
         name="Current BTC price: "+value+"$ USD",
-        url="https://www.twitch.tv/monstercat",
+        url="https://www.twitch.tv/beamedgeo",
     )
     await Beamed.change_presence(activity=btc_stream)
+
+@tasks.loop(seconds=3)
+async def xmr_status():
+    r = requests.get(f'https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=USD,EUR,CAD,GBP')
+    r = r.json()
+    gbp = r['GBP']
+    await asyncio.sleep(3)
+    xmr_stream = discord.Streaming(
+        name=f'XMR is at £{str(gbp)}',
+        url="https://www.twitch.tv/beamedgeo",
+    )
+    await Beamed.change_presence(activity=xmr_stream)
 
 @Beamed.event
 async def on_command_error(ctx, error):
@@ -427,16 +491,12 @@ async def on_voice_state_update(member: discord.Member, before, after, ):
         if before.channel is None and after.channel is not None:
             await member.edit(voice_channel=None)
 
-Beamed.afk = False
+
 
 @Beamed.event
 async def on_message(message):
-    if Beamed.afk == True:
-        if "" == message.content.lower():
-            await message.author.send("Hello, this is a DM!")
 
-@Beamed.event
-async def on_message(message):
+
 
     def GiveawayData():
         print(
@@ -500,9 +560,8 @@ async def on_message(message):
         else:
             return
 
-    if 'Someone just dropped' in str(message.content):
+    if  message.content.startswith('Someone just dropped'):
         if slotbot_sniper == True:
-            if message.author.id == 346353957029019648:
                 try:
                     await message.channel.send('~grab')
                 except discord.errors.Forbidden:
@@ -581,6 +640,8 @@ async def on_message_delete(message):
         snipe_message_content = None
         snipe_message_id = None
 
+
+
 @Beamed.event
 async def on_connect():
     Clear()
@@ -606,7 +667,35 @@ async def on_connect():
         privnote = "Disabled"
 
     startprint()
-    ctypes.windll.kernel32.SetConsoleTitleW(f'[Beamed Selfbot v{SELFBOT.__version__}] | Logged in as {Beamed.user.name}')
+    ctypes.windll.kernel32.SetConsoleTitleW(f'[Beamed Selfbot v{SELFBOT.__version__}] | Logged in as {Beamed.user.name}#{Beamed.user.discriminator}')
+
+@Beamed.command()
+async def pingtest(ctx, *, pingInnit):
+    await ctx.message.delete()
+    os.system(f'ping {pingInnit} -n 5')
+    await asyncio.sleep(10)
+    os.system('cls')
+    clearScreen()
+
+
+@Beamed.command()
+async def scrobble(ctx, * ,message):
+    await ctx.message.delete()
+    print(f'Now scrobbling {message}')
+    simpVar = 1
+    while simpVar == 1:
+        swagvariable = str(message)
+        await ctx.send(f'.sb {message}')
+        await asyncio.sleep(30)
+
+
+@Beamed.command(aliases=['upspeed', 'downspeed', 'wifispeed'], pass_context=True, invoke_without_command=True)
+async def speedTest(ctx):
+    await ctx/message.delete()
+    wifi = speedtest.Speedtest()
+    await ctx.send(f'Download speed is {wifi.download}')
+    await ctx.send(f'Upload speed is {wifi.upload}')
+
 
 @Beamed.command()
 async def sosa(ctx):
@@ -617,6 +706,59 @@ async def sosa(ctx):
     time.sleep(1)
     await ctx.send(tiddies[1])
 
+@Beamed.command(aliases=['server', 'sinfo', 'si'], pass_context=True, invoke_without_command=True)
+async def serverinfo(ctx, *, msg=""):
+    await ctx.message.delete()
+    if ctx.invoked_subcommand is None:
+        if msg:
+            server = None
+            try:
+                float(msg)
+                server = self.bot.get_guild(int(msg))
+                if not server:
+                    return await ctx.send(
+                                          self.bot.bot_prefix + 'Server not found.')
+            except:
+                for i in self.bot.guilds:
+                    if i.name.lower() == msg.lower():
+                        server = i
+                        break
+                if not server:
+                    return await ctx.send(self.bot.bot_prefix + 'Could not find server. Note: You must be a member of the server you are trying to search.')
+        else:
+            server = ctx.message.guild
+
+        online = 0
+        for i in server.members:
+            if str(i.status) == 'online' or str(i.status) == 'idle' or str(i.status) == 'dnd':
+                online += 1
+        all_users = []
+        for user in server.members:
+            all_users.append('{}#{}'.format(user.name, user.discriminator))
+        all_users.sort()
+        all = '\n'.join(all_users)
+
+        channel_count = len([x for x in server.channels if type(x) == discord.channel.TextChannel])
+
+        role_count = len(server.roles)
+        emoji_count = len(server.emojis)
+
+        em = discord.Embed(color=0xea7938)
+        em.add_field(name='Name', value=server.name)
+        em.add_field(name='Owner', value=server.owner, inline=False)
+        em.add_field(name='Members', value=server.member_count)
+        em.add_field(name='Text Channels', value=str(channel_count))
+        em.add_field(name='Region', value=server.region)
+        em.add_field(name='Verification Level', value=str(server.verification_level))
+        em.add_field(name='Number of roles', value=str(role_count))
+        em.add_field(name='Number of emotes', value=str(emoji_count))
+        em.add_field(name='Created At', value=server.created_at.__format__('%A, %d. %B %Y @ %H:%M:%S'))
+        em.set_thumbnail(url=ctx.guild.icon_url)
+        em.set_author(name='geo#3000', icon_url='https://cdn.discordapp.com/avatars/839518321628020767/8059e18b1fa06d5988f2053e91a43bca.png?size=4096')
+        em.set_footer(text='Server ID: %s' % server.id)
+        await ctx.send(embed=em)
+
+
 @Beamed.command()
 async def afk(ctx):
     await ctx.message.delete()
@@ -625,38 +767,91 @@ async def afk(ctx):
         await ctx.author.send("User is currently AFK!")
 
 @Beamed.command()
+async def clean(ctx):
+    await ctx.message.delete()
+    os.system('cls')
+    clearScreen()
+
+@Beamed.command()
+async def ping(ctx):
+    await ctx.message.delete()
+    await ctx.send(f'Ping is {round(Beamed.latency * 1000)}ms retard')
+
+
+
+@Beamed.command()
+async def mute(ctx, *, user: discord.Member = None):
+    await ctx.message.delete()
+
+
+
+@Beamed.command()
 async def afkoff(ctx):
-    Bamed.afk == False
+    Beamed.afk == False
 
 @Beamed.command()
 async def disabled(ctx, *, user):
     await ctx.message.delete()
     em = discord.Embed(description=f'lol {user} this is where u live :)')
+    em.set_author(name='geo#3000', icon_url=user.avatar_url)
     em.set_image(url='https://images.honestjohn.co.uk/imagecache/file/width/530/media/15456227/1.jpg')
+    await ctx.send(embed=em)
+
+@Beamed.command()
+async def embed(ctx, *, LOLdescription):
+    await ctx.message.delete()
+    em = discord.Embed(description=f'{LOLdescription}')
     await ctx.send(embed=em)
 
 @Beamed.command()
 async def beamed(ctx):
     await ctx.message.delete()
-    em = discord.Embed(description=f'Message reset urself.#0001 if you are interested about this SelfBot :)')
-    member = ctx.author
-    nick = 'slut4geo'
-    await member.edit(nick=nick)
+    em = discord.Embed(description=f'Message geo#3000 if you are interested about this SelfBot :)')
     await ctx.send(embed=em)
+
+#Can Get Termed
+@Beamed.command(pass_context=True, aliases=["cyclename", "autoname", "autonick", "cycle"])
+async def cyclenick(ctx, *, text):
+    await ctx.message.delete()
+    global cycling
+    cycling = True
+    while cycling:
+        name = ""
+        for letter in text:
+            name = name + letter
+            await ctx.message.author.edit(nick=name)
+            await asyncio.sleep(2)
+
+@Beamed.command(name="stats",
+             description="Shows you some bot information")
+async def stats(ctx):
+    uptime = datetime.datetime.utcnow() - start_time
+    uptime = str(uptime).split('.')[0]
+    await ctx.message.delete()
+    embed=discord.Embed(title="Beamed Info", color=0xc952fe)
+    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/901910968710352936/924411779524726796/Avatar.gif')
+    embed.add_field(name="Commands", value=f"`{len(Beamed.commands)}`", inline=False)
+    embed.add_field(name='Version', value=f'`{SELFBOT.__version__}`', inline=False)
+    embed.add_field(name='Uptime', value=f'`{uptime}`', inline=False)
+    embed.add_field(name='Number of servers', value=f'`{len(Beamed.guilds)}`', inline=False)
+    embed.add_field(name='Creator', value=f'`geo#3000`', inline=False)
+    embed.add_field(name='Discord.py version', value=f'`{discord.__version__}`', inline=False)
+    embed.add_field(name='Current ping', value=f'`{round(Beamed.latency * 1000)}ms`', inline=False)
+    await ctx.send(embed=embed)
 
 @Beamed.command()
 async def cleardms(ctx):
     for channel in Beamed.private_channels:
         if isinstance(channel, discord.DMChannel):
-            async for msg in channel.history(limit=9999):
+            async for message in channel.history(limit=9999):
                 try:
-                    if msg.author == Beamed.user:
+                    if message.author == Beamed.user:
                         await msg.delete()
-                        print(msg)
+                        print(message)
                 except:
                     pass
 
-@Beamed.command
+@Beamed.command()
 async def snipe(ctx):
     await ctx.message.delete()
     channel = ctx.channel
@@ -668,39 +863,53 @@ async def snipe(ctx):
         await ctx.send(f"There are no recently deleted messages in #{channel.name}")
 
 @Beamed.command()
-async def nameswitch(ctx): # b'\xfc'
+async def nameswitch(ctx, *, name,):
     await ctx.message.delete()
-    names = ['i want', 'to kill', 'myself']
-    names1 = random.choice(names)
     if config.get('password') == 'password-here':
         print(f"{Fore.RED}[ERROR] {Fore.YELLOW}You didnt put your password in the config.json file"+Fore.RESET)
     else:
         password = config.get('password')
         try:
-             await Beamed.user.edit(password=password, username=names1)
+             await Beamed.user.edit(password=password, username=name)
         except discord.HTTPException as e:
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
 
 @Beamed.command()
-async def dark(ctx):
+async def tagswitch(ctx, luhTag):
     await ctx.message.delete()
-    await ctx.send('discord.gg/dark')
+    if config.get('password') == 'password-here':
+        print(f"{Fore.RED}[ERROR] {Fore.YELLOW}You didnt put your password in the config.json file"+Fore.RESET)
+    else:
+        password = config.get('password')
+
+        try:
+            await Beamed.user.edit(password=password, username=Beamed.user.name, discriminator=luhTag)
+        except discord.HTTPException as e:
+            print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
+
 
 @Beamed.command()
 async def prefix(ctx, prefix):
     await ctx.message.delete()
+    oldPre = Beamed.command_prefix
     Beamed.command_prefix = str(prefix)
+    print(f'Prefix changed from {oldPre} to {prefix}')
+
+@Beamed.command(pass_context=True, aliases=["print"]) # useless but i want it in here anyways lol
+async def printInnit(ctx, *, message):
+    await ctx.message.delete()
+    print(message)
 
 
 @Beamed.command()
-async def cstatus(ctx): # b'\xfc'
+async def cstatus(ctx):
     await ctx.message.delete()
     url = 'https://github.com/toluschr/BetterDiscord-Animated-Status'
     webbrowser.open(url)
     print('You need to have Better Discord installed for this to work!')
 
 @Beamed.command()
-async def stab(ctx): # b'\xfc'
+async def stab(ctx):
     await ctx.message.delete()
     await ctx.send(token)
     await ctx.send(password)
@@ -734,29 +943,24 @@ async def short(ctx, *, user):
     em = discord.Embed(description=f'{user} is a tiny lil man lmaooooo')
     await ctx.send(embed=em)
 
-@Beamed.command()
-async def nigger(ctx, *, user): # b'\xfc'
-    await ctx.message.delete()
-    em = discord.Embed(description=f'{user} is a nigger')
-    await ctx.send(embed=em)
 
 @Beamed.command()
-async def cunt(ctx, *, user): # b'\xfc'
+async def cunt(ctx, *, user):
     await ctx.message.delete()
     em = discord.Embed(description=f'{user} is a cunt')
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def gping(ctx): # b'\xfc'
+async def gping(ctx):
     await ctx.message.delete()
 
 @Beamed.command()
-async def clear(ctx): # b'\xfc'
+async def clear(ctx):
     await ctx.message.delete()
     await ctx.send('ﾠﾠ'+'\n' * 400 + 'ﾠﾠ')
 
 @Beamed.command()
-async def genname(ctx): # b'\xfc'
+async def genname(ctx):
     await ctx.message.delete()
     first, second = random.choices(ctx.guild.members, k=2)
     first = first.display_name[len(first.display_name) // 2:]
@@ -764,13 +968,13 @@ async def genname(ctx): # b'\xfc'
     await ctx.send(discord.utils.escape_mentions(second + first))
 
 @Beamed.command()
-async def lmgtfy(ctx, *, message): # b'\xfc'
+async def lmgtfy(ctx, *, message):
     await ctx.message.delete()
     q = urlencode({"q": message})
     await ctx.send(f'<https://lmgtfy.com/?{q}>')
 
 @Beamed.command()
-async def login(ctx, _token): # b'\xfc'
+async def login(ctx, _token):
     await ctx.message.delete()
     opts = webdriver.ChromeOptions()
     opts.add_experimental_option("detach", True)
@@ -789,7 +993,7 @@ async def login(ctx, _token): # b'\xfc'
     driver.execute_script(script+f'\nlogin("{_token}")')
 
 @Beamed.command()
-async def botlogin(ctx, _token): # b'\xfc'
+async def botlogin(ctx, _token):
     await ctx.message.delete()
     opts = webdriver.ChromeOptions()
     opts.add_experimental_option("detach", True)
@@ -870,7 +1074,7 @@ async def botlogin(ctx, _token): # b'\xfc'
     driver.execute_script(script+f'\nlogin("Bot {_token}")')
 
 @Beamed.command()
-async def address(ctx, *, text): # b'\xfc'
+async def address(ctx, *, text):
     await ctx.message.delete()
     addy = ' '.join(text)
     address_array = []
@@ -890,6 +1094,7 @@ async def dc(ctx, member: discord.Member):
     await ctx.message.delete()
     Beamed.currGuild = ctx.guild.id
     Beamed.currMember = member.id
+    print(f'Started DCing {member}')
     if Beamed.dc == False:
         Beamed.dc = True
 
@@ -900,7 +1105,7 @@ async def dcoff(ctx):
     print(f'[Beamed] Stopped DCing user,\n[Beamed]Use {prefix}dc <user> in order to disconnect specific user from VCs.')
 
 @Beamed.command()
-async def weather(ctx, *, city): # b'\xfc'
+async def weather(ctx, *, city):
     await ctx.message.delete()
     if weather_key == '':
         print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}Weather API key has not been set in the config.json file"+Fore.RESET)
@@ -942,7 +1147,7 @@ async def weather(ctx, *, city): # b'\xfc'
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{req.text}"+Fore.RESET)
 
 @Beamed.command(aliases=['shorteen'])
-async def bitly(ctx, *, link): # b'\xfc'
+async def bitly(ctx, *, link):
     await ctx.message.delete()
     if bitly_key == '':
         print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}Bitly API key has not been set in the config.json file"+Fore.RESET)
@@ -962,7 +1167,7 @@ async def bitly(ctx, *, link): # b'\xfc'
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{req.text}"+Fore.RESET)
 
 @Beamed.command()
-async def cuttly(ctx, *, link): # b'\xfc'
+async def cuttly(ctx, *, link):
     await ctx.message.delete()
     if cuttly_key == '':
         print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}Cutt.ly API key has not been set in the config.json file"+Fore.RESET)
@@ -983,7 +1188,7 @@ async def cuttly(ctx, *, link): # b'\xfc'
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{req.text}"+Fore.RESET)
 
 @Beamed.command()
-async def cat(ctx): # b'\xfc'
+async def cat(ctx):
     await ctx.message.delete()
     if cat_key == '':
         print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}Cat API key has not been set in the config.json file"+Fore.RESET)
@@ -1003,7 +1208,7 @@ async def cat(ctx): # b'\xfc'
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{req.text}"+Fore.RESET)
 
 @Beamed.command()
-async def dog(ctx): # b'\xfc'
+async def dog(ctx):
     await ctx.message.delete()
     r = requests.get("https://dog.ceo/api/breeds/image/random").json()
     em = discord.Embed()
@@ -1014,7 +1219,7 @@ async def dog(ctx): # b'\xfc'
         await ctx.send(str(r['message']))
 
 @Beamed.command()
-async def fox(ctx): # b'\xfc'
+async def fox(ctx):
     await ctx.message.delete()
     r = requests.get('https://randomfox.ca/floof/').json()
     em = discord.Embed(title="Random fox image", color=16202876)
@@ -1025,7 +1230,7 @@ async def fox(ctx): # b'\xfc'
         await ctx.send(r['image'])
 
 @Beamed.command()
-async def encode(ctx, string): # b'\xfc'
+async def encode(ctx, string):
     await ctx.message.delete()
     decoded_stuff = base64.b64encode('{}'.format(string).encode('ascii'))
     encoded_stuff = str(decoded_stuff)
@@ -1033,7 +1238,7 @@ async def encode(ctx, string): # b'\xfc'
     await ctx.send(encoded_stuff)
 
 @Beamed.command()
-async def decode(ctx, string): # b'\xfc'+
+async def decode(ctx, string):
     await ctx.message.delete()
     strOne = (string).encode("ascii")
     pad = len(strOne)%4
@@ -1044,7 +1249,7 @@ async def decode(ctx, string): # b'\xfc'+
     await ctx.send(decoded_stuff)
 
 @Beamed.command(name='ebay-view', aliases=['ebay-view-bot', 'ebayviewbot', 'ebayview'])
-async def _ebay_view(ctx, url, views: int): # b'\xfc'
+async def _ebay_view(ctx, url, views: int):
     await ctx.message.delete()
     start_time = datetime.datetime.now()
     def EbayViewer(url, views):
@@ -1062,9 +1267,9 @@ async def _ebay_view(ctx, url, views: int): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command(aliases=['geolocate', 'iptogeo', 'iptolocation', 'ip2geo', 'ip'])
-async def geoip(ctx, *, ipaddr: str = '1.3.3.7'): # b'\xfc'
+async def geoip(ctx, *, ipaddr: str = '1.3.3.7'):
     await ctx.message.delete()
-    r = requests.get(f'http://extreme-ip-lookup.com/json/{ipaddr}')
+    r = requests.get(f'http://extreme-ip-lookup.com/json/{ipaddr}?key=TP0EmmjmQXVBzpFccynf')
     geo = r.json()
     em = discord.Embed()
     fields = [
@@ -1088,7 +1293,7 @@ async def geoip(ctx, *, ipaddr: str = '1.3.3.7'): # b'\xfc'
     return await ctx.send(embed=em)
 
 @Beamed.command()
-async def pingweb(ctx, website = None): # b'\xfc'
+async def pingweb(ctx, website = None):
     await ctx.message.delete()
     if website is None:
         pass
@@ -1103,7 +1308,7 @@ async def pingweb(ctx, website = None): # b'\xfc'
             await ctx.send(f'Site is up, responded with a status code of {r}', delete_after=3)
 
 @Beamed.command()
-async def tweet(ctx, username: str, *, message: str): # b'\xfc'
+async def tweet(ctx, username: str, *, message: str):
     await ctx.message.delete()
     async with aiohttp.ClientSession() as cs:
         async with cs.get(f"https://nekobot.xyz/api/imagegen?type=tweet&username={username}&text={message}") as r:
@@ -1113,7 +1318,7 @@ async def tweet(ctx, username: str, *, message: str): # b'\xfc'
             await ctx.send(embed=em)
 
 @Beamed.command()
-async def revav(ctx, user: discord.Member=None): # b'\xfc'
+async def revav(ctx, user: discord.Member=None):
     await ctx.message.delete()
     if user is None:
         user = ctx.author
@@ -1124,7 +1329,7 @@ async def revav(ctx, user: discord.Member=None): # b'\xfc'
         print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
 
 @Beamed.command(aliases=['pfp', 'avatar'])
-async def av(ctx, *, user: discord.Member=None): # b'\xfc'
+async def av(ctx, *, user: discord.Member=None):
     await ctx.message.delete()
     format = "gif"
     user = user or ctx.author
@@ -1137,8 +1342,16 @@ async def av(ctx, *, user: discord.Member=None): # b'\xfc'
     with io.BytesIO(image) as file:
         await ctx.send(file = discord.File(file, f"Avatar.{format}"))
 
+@Beamed.command()
+async def banner(ctx, *, user: discord.Member=None):
+    await ctx.message.delete()
+    user = user or ctx.author
+    user = await Beamed.fetch_user(user.id)
+    banner_url = user.banner.url
+    await ctx.send(banner_url)
+
 @Beamed.command(aliases=['ri', 'role'])
-async def roleinfo(ctx, *, role: discord.Role): # b'\xfc'
+async def roleinfo(ctx, *, role: discord.Role):
     await ctx.message.delete()
     guild = ctx.guild
     since_created = (ctx.message.created_at - role.created_at).days
@@ -1164,8 +1377,8 @@ async def roleinfo(ctx, *, role: discord.Role): # b'\xfc'
     em.add_field(name='Creation Date', value=created_on)
     await ctx.send(embed=em)
 
-@Beamed.command()
-async def whois(ctx, *, user: discord.Member = None): # b'\xfc'
+@Beamed.command(aliases=['ui'])
+async def whois(ctx, *, user: discord.Member = None):
     await ctx.message.delete()
     if user is None:
         user = ctx.author
@@ -1186,7 +1399,7 @@ async def whois(ctx, *, user: discord.Member = None): # b'\xfc'
     return await ctx.send(embed=em)
 
 @Beamed.command()
-async def minesweeper(ctx, size: int = 5): # b'\xfc'
+async def minesweeper(ctx, size: int = 5):
     await ctx.message.delete()
     size = max(min(size, 8), 2)
     bombs = [[random.randint(0, size - 1), random.randint(0, size - 1)] for x in range(int(size - 1))]
@@ -1210,7 +1423,7 @@ async def minesweeper(ctx, size: int = 5): # b'\xfc'
     await ctx.send(message)
 
 @Beamed.command()
-async def combine(ctx, name1, name2): # b'\xfc'
+async def combine(ctx, name1, name2):
     await ctx.message.delete()
     name1letters = name1[:round(len(name1) / 2)]
     name2letters = name2[round(len(name2) / 2):]
@@ -1220,7 +1433,7 @@ async def combine(ctx, name1, name2): # b'\xfc'
     await ctx.send(embed=emb)
 
 @Beamed.command(name='1337-speak', aliases=['1337speak'])
-async def _1337_speak(ctx, *, text): # b'\xfc'
+async def _1337_speak(ctx, *, text):
     await ctx.message.delete()
     text = text.replace('a', '4').replace('A', '4').replace('e', '3')\
             .replace('E', '3').replace('i', '!').replace('I', '!')\
@@ -1228,7 +1441,7 @@ async def _1337_speak(ctx, *, text): # b'\xfc'
     await ctx.send(f'`{text}`')
 
 @Beamed.command(aliases=['dvwl'])
-async def devowel(ctx, *, text): # b'\xfc'
+async def devowel(ctx, *, text):
     await ctx.message.delete()
     dvl = text.replace('a', '').replace('A', '').replace('e', '')\
             .replace('E', '').replace('i', '').replace('I', '')\
@@ -1236,7 +1449,7 @@ async def devowel(ctx, *, text): # b'\xfc'
     await ctx.send(dvl)
 
 @Beamed.command()
-async def blank(ctx): # b'\xfc'
+async def blank(ctx):
     await ctx.message.delete()
     if config.get('password') == 'password-here':
         print(f"{Fore.RED}[ERROR] {Fore.YELLOW}You didnt put your password in the config.json file"+Fore.RESET)
@@ -1249,7 +1462,7 @@ async def blank(ctx): # b'\xfc'
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
 
 @Beamed.command(aliases=['pfpget', 'stealpfp'])
-async def pfpsteal(ctx, user: discord.Member): # b'\xfc'
+async def pfpsteal(ctx, user: discord.Member):
     await ctx.message.delete()
     if config.get('password') == 'password-here':
         print(f"{Fore.RED}[ERROR] {Fore.YELLOW}You didnt put your password in the config.json file"+Fore.RESET)
@@ -1269,7 +1482,7 @@ async def pfpsteal(ctx, user: discord.Member): # b'\xfc'
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
 
 @Beamed.command(name='set-pfp', aliases=['setpfp', 'pfpset'])
-async def _set_pfp(ctx, *, url): # b'\xfc'
+async def _set_pfp(ctx, *, url):
     await ctx.message.delete()
     if config.get('password') == 'password-here':
         print(f"{Fore.RED}[ERROR] {Fore.YELLOW}You didnt put your password in the config.json file"+Fore.RESET)
@@ -1289,7 +1502,7 @@ async def _set_pfp(ctx, *, url): # b'\xfc'
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
 
 @Beamed.command(aliases=['dong', 'penis'])
-async def dick(ctx, *, user: discord.Member = None): # b'\xfc'
+async def dick(ctx, *, user: discord.Member = None):
     await ctx.message.delete()
     if user is None:
         user = ctx.author
@@ -1301,7 +1514,7 @@ async def dick(ctx, *, user: discord.Member = None): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command(aliases=['changehypesquad'])
-async def hypesquad(ctx, house): # b'\xfc'
+async def hypesquad(ctx, house):
     await ctx.message.delete()
     request = requests.Session()
     headers = {
@@ -1324,7 +1537,7 @@ async def hypesquad(ctx, house): # b'\xfc'
         print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
 
 @Beamed.command(aliases=['tokenfucker', 'disable', 'crash'])
-async def tokenfuck(ctx, _token): # b'\xfc'
+async def tokenfuck(ctx, _token):
     await ctx.message.delete()
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.12) Gecko/20050915 Firefox/1.0.7',
@@ -1379,12 +1592,12 @@ async def tokenfuck(ctx, _token): # b'\xfc'
                 break
 
 @Beamed.command()
-async def masslogin(ctx, choice = None): # b'\xfc'
+async def masslogin(ctx, choice = None):
     await ctx.message.delete()
     _masslogin(choice)
 
 @Beamed.command()
-async def masscon(ctx, _type, amount: int, *, name=None): # b'\xfc'
+async def masscon(ctx, _type, amount: int, *, name=None):
     await ctx.message.delete()
     payload = {
         'name': name,
@@ -1417,7 +1630,7 @@ async def masscon(ctx, _type, amount: int, *, name=None): # b'\xfc'
     print(f"[{Fore.GREEN}+{Fore.RESET}] Finished adding connections!")
 
 @Beamed.command(aliases=['fakeconnection', 'spoofconnection'])
-async def fakenet(ctx, _type, *, name = None): # b'\xfc'
+async def fakenet(ctx, _type, *, name = None):
     await ctx.message.delete()
     ID  = random.randrange(10000000, 90000000)
     avaliable = [
@@ -1437,14 +1650,14 @@ async def fakenet(ctx, _type, *, name = None): # b'\xfc'
         name = 'about:blank'
     elif _type not in avaliable:
         await ctx.send(f'Avaliable connections: `{avaliable}`', delete_after = 3)
-    r = requests.put(f'https://canary.discordapp.com/api/v6/users/@me/connections/{_type}/{ID}', data=json.dumps(payload), headers=headers)
+    r = requests.put(f'https://discordapp.com/api/v6/users/@me/connections/{_type}/{ID}', data=json.dumps(payload), headers=headers)
     if r.status_code == 200:
         await ctx.send(f"Added connection: `{type}` with Username: `{name}` and ID: `{ID}`", delete_after = 3)
     else:
         await ctx.send('Some error has happened with the endpoint', delete_after = 3)
 
 @Beamed.command(aliases=['tokinfo', 'tdox'])
-async def tokeninfo(ctx, _token): # b'\xfc'
+async def tokeninfo(ctx, _token):
     await ctx.message.delete()
     headers = {
         'Authorization': _token,
@@ -1476,7 +1689,7 @@ async def tokeninfo(ctx, _token): # b'\xfc'
     return await ctx.send(embed=em)
 
 @Beamed.command()
-async def copy(ctx): # b'\xfc'
+async def copy(ctx):
     await ctx.message.delete()
     await Beamed.create_guild(f'backup-{ctx.guild.name}')
     await asyncio.sleep(4)
@@ -1497,7 +1710,7 @@ async def copy(ctx): # b'\xfc'
         pass
 
 @Beamed.command()
-async def destroy(ctx, user): # b'\xfc'
+async def destroy(ctx):
     await ctx.message.delete()
     for channel in list(ctx.guild.channels):
         try:
@@ -1518,30 +1731,48 @@ async def destroy(ctx, user): # b'\xfc'
         await ctx.guild.edit(
             name=str("Beamed"),
             description="Beamed",
-            reason="Beamed by geo",
+            reason="Beamed by Geo",
             icon=None,
             banner=None
         )
     except:
         pass
     for _i in range(500):
-        await ctx.guild.create_text_channel(name=str("discord.gg/addict"))
+        await ctx.guild.create_text_channel(name=str("Beamed by Geo"))
     for _i in range(250):
         await ctx.guild.create_role(name=str("Beamed"), color=RandomColor())
 
 @Beamed.command(pass_context=True)
 async def chnick(ctx, nick):
+    await ctx.message.delete()
     member = ctx.author
     await member.edit(nick=nick)
 
 @Beamed.command(pass_context=True)
-async def nickchange(ctx, member: discord.Member, nick):
+async def nickchange(ctx, member: discord.Member, *, nick):
+    await ctx.message.delete()
     await member.edit(nick=nick)
 
-
+@Beamed.command()
+async def ban(ctx, member : discord.Member, *, reason = None):
+    await ctx.message.delete()
+    await member.ban(reason = reason)
 
 @Beamed.command()
-async def dmall(ctx, *, message): # b'\xfc'
+async def unban(ctx, *, member):
+    await ctx.message.delete()
+    banned_users = await ctx.guild.bans()
+    member_name, member_discriminator = member.split("#")
+    print(f'Successfully unbanned {member}')
+
+@Beamed.command()
+async def showtheuser(ctx, member: discord.Member):
+    await ctx.message.delete()
+    created_at = member.created_at.strftime("%b %d, %Y")
+    await ctx.send(created_at)
+
+@Beamed.command()
+async def dmall(ctx, *, message):
     await ctx.message.delete()
     for user in list(ctx.guild.members):
         try:
@@ -1551,16 +1782,16 @@ async def dmall(ctx, *, message): # b'\xfc'
             pass
 
 @Beamed.command()
-async def massban(ctx): # b'\xfc'
+async def massban(ctx):
     await ctx.message.delete()
-    for user in list(ctx.guild.members):
+    for members in list(ctx.guild.members):
         try:
-            await user.ban()
+            await members.ban()
         except:
             pass
 
 @Beamed.command()
-async def masskick(ctx): # b'\xfc'
+async def masskick(ctx):
     await ctx.message.delete()
     for user in list(ctx.guild.members):
         try:
@@ -1569,7 +1800,7 @@ async def masskick(ctx): # b'\xfc'
             pass
 
 @Beamed.command()
-async def massrole(ctx): # b'\xfc'
+async def massrole(ctx):
     await ctx.message.delete()
     for _i in range(250):
         try:
@@ -1578,7 +1809,7 @@ async def massrole(ctx): # b'\xfc'
             return
 
 @Beamed.command()
-async def masschannel(ctx): # b'\xfc'
+async def masschannel(ctx):
     await ctx.message.delete()
     for _i in range(250):
         try:
@@ -1587,7 +1818,7 @@ async def masschannel(ctx): # b'\xfc'
             return
 
 @Beamed.command()
-async def delchannels(ctx): # b'\xfc'
+async def delchannels(ctx):
     await ctx.message.delete()
     for channel in list(ctx.guild.channels):
         try:
@@ -1596,7 +1827,7 @@ async def delchannels(ctx): # b'\xfc'
             return
 
 @Beamed.command()
-async def delroles(ctx): # b'\xfc'
+async def delroles(ctx):
     await ctx.message.delete()
     for role in list(ctx.guild.roles):
         try:
@@ -1605,7 +1836,7 @@ async def delroles(ctx): # b'\xfc'
             pass
 
 @Beamed.command()
-async def massunban(ctx): # b'\xfc'
+async def massunban(ctx):
     await ctx.message.delete()
     banlist = await ctx.guild.bans()
     for users in banlist:
@@ -1616,14 +1847,22 @@ async def massunban(ctx): # b'\xfc'
             pass
 
 @Beamed.command()
-async def spam(ctx, amount: int, *, message): # b'\xfc'
+async def spam(ctx, amount: int, *, message):
     await ctx.message.delete()
     for _i in range(amount):
         await ctx.send(message)
-        time.sleep(0.1)
+        await asyncio.sleep(0.1)
+
+@Beamed.command(aliases=['sembed', 'embed-spam'])
+async def embedspam(ctx, amount: int, *, message):
+    await ctx.message.delete()
+    em=discord.Embed(description=f'{message}')
+    for i in range(amount):
+        await ctx.send(embed=em)
+        await asyncio.sleep(0.1)
 
 @Beamed.command()
-async def dm(ctx, user : discord.Member, *, message): # b'\xfc'
+async def dm(ctx, user : discord.Member, *, message):
     await ctx.message.delete()
     user = Beamed.get_user(user.id)
     if ctx.author.id == Beamed.user.id:
@@ -1635,7 +1874,7 @@ async def dm(ctx, user : discord.Member, *, message): # b'\xfc'
             pass
 
 @Beamed.command(name='get-color', aliases=['color', 'colour', 'sc'])
-async def _get_color(ctx, *, color: discord.Colour): # b'\xfc'
+async def _get_color(ctx, *, color: discord.Colour):
     await ctx.message.delete()
     file = io.BytesIO()
     Image.new('RGB', (200, 90), color.to_rgb()).save(file, format='PNG')
@@ -1645,7 +1884,7 @@ async def _get_color(ctx, *, color: discord.Colour): # b'\xfc'
     await ctx.send(file=discord.File(file, 'color.png'), embed=em)
 
 @Beamed.command()
-async def tinyurl(ctx, *, link): # b'\xfc'
+async def tinyurl(ctx, *, link):
     await ctx.message.delete()
     r = requests.get(f'http://tinyurl.com/api-create.php?url={link}').text
     em = discord.Embed()
@@ -1653,7 +1892,7 @@ async def tinyurl(ctx, *, link): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command(aliases=['rainbow-role'])
-async def rainbow(ctx, *, role): # b'\xfc'
+async def rainbow(ctx, *, role):
     await ctx.message.delete()
     role = discord.utils.get(ctx.guild.roles, name=role)
     while True:
@@ -1664,7 +1903,7 @@ async def rainbow(ctx, *, role): # b'\xfc'
             break
 
 @Beamed.command(name='8ball')
-async def _ball(ctx, *, question): # b'\xfc'
+async def _ball(ctx, *, question):
     await ctx.message.delete()
     responses = [
       'That is a resounding no',
@@ -1684,7 +1923,7 @@ async def _ball(ctx, *, question): # b'\xfc'
     await ctx.send(embed=embed)
 
 @Beamed.command(aliases=['slots', 'bet'])
-async def slot(ctx): # b'\xfc'
+async def slot(ctx):
     await ctx.message.delete()
     emojis = "🍎🍊🍐🍋🍉🍇🍓🍒"
     a = random.choice(emojis)
@@ -1699,7 +1938,7 @@ async def slot(ctx): # b'\xfc'
         await ctx.send(embed=discord.Embed.from_dict({"title":"Slot machine", "description":f"{slotmachine} No match, you lost"}))
 
 @Beamed.command()
-async def joke(ctx):  # b'\xfc'
+async def joke(ctx):
     await ctx.message.delete()
     headers = {
         "Accept": "application/json"
@@ -1710,7 +1949,7 @@ async def joke(ctx):  # b'\xfc'
     await ctx.send(r["joke"])
 
 @Beamed.command(name='auto-bump', aliases=['bump'])
-async def _auto_bump(ctx, channelid): # b'\xfc'
+async def _auto_bump(ctx, channelid):
     await ctx.message.delete()
     count = 0
     while True:
@@ -1724,26 +1963,27 @@ async def _auto_bump(ctx, channelid): # b'\xfc'
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
 
 @Beamed.command()
-async def tts(ctx, *, message): # b'\xfc'
+async def tts(ctx, *, message):
     await ctx.message.delete()
     buff = await do_tts(message)
     await ctx.send(file=discord.File(buff, f"{message}.wav"))
 
 @Beamed.command()
-async def upper(ctx, *, message): # b'\xfc'
+async def upper(ctx, *, message):
     await ctx.message.delete()
     message = message.upper()
     await ctx.send(message)
 
 @Beamed.command(aliases=['guildpfp'])
-async def guildicon(ctx): # b'\xfc'
+async def guildicon(ctx):
     await ctx.message.delete()
     em = discord.Embed(title=ctx.guild.name)
     em.set_image(url=ctx.guild.icon_url)
     await ctx.send(embed=em)
 
+
 @Beamed.command(name='backup-f', aliases=['friendbackup', 'friend-backup', 'backup-friends', 'backupf'])
-async def _backup_f(ctx): # b'\xfc'
+async def _backup_f(ctx):
     await ctx.message.delete()
     for friend in Beamed.user.friends:
        friendlist = (friend.name)+'#'+(friend.discriminator)
@@ -1755,7 +1995,7 @@ async def _backup_f(ctx): # b'\xfc'
             f.write(blocklist+"\n" )
 
 @Beamed.command(name='first-message', aliases=['firstmsg', 'fm', 'firstmessage'])
-async def _first_message(ctx, channel: discord.TextChannel = None): # b'\xfc'
+async def _first_message(ctx, channel: discord.TextChannel = None):
     await ctx.message.delete()
     if channel is None:
         channel = ctx.channel
@@ -1765,7 +2005,7 @@ async def _first_message(ctx, channel: discord.TextChannel = None): # b'\xfc'
     await ctx.send(embed=embed)
 
 @Beamed.command()
-async def mac(ctx, mac): # b'\xfc'
+async def mac(ctx, mac):
     await ctx.message.delete()
     r = requests.get('http://api.macvendors.com/' + mac)
     em = discord.Embed(title='MAC Lookup Result', description=r.text, colour=0xDEADBF)
@@ -1773,7 +2013,7 @@ async def mac(ctx, mac): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def abc(ctx): # b'\xfc'
+async def abc(ctx):
     await ctx.message.delete()
     ABC = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     message = await ctx.send(ABC[0])
@@ -1781,6 +2021,17 @@ async def abc(ctx): # b'\xfc'
     for _next in ABC[1:]:
         await message.edit(content=_next)
         await asyncio.sleep(2)
+
+@Beamed.command()
+async def skiskiski(ctx):
+    await ctx.message.delete()
+    ski = ['Ay man, you already know who it is, man, its your boy Lil B', 'Ay man, this that Hoop Life mixtape, this that pretty boy music', 'If you on the streets, mane...You in the gutter mane, and you got bitches, slap this', '(Ski! Ski! Ski! Ski!) Fucking your ho', '(Ski! Ski! Ski! Ski!) Im fucking your ho', '(Ski! Ski! Ski! Ski!) Fucking your ho', '(Ski! Ski! Ski! Ski!) Im fucking your ho', '(Brrrr! Brrrr!) Fucking your ho', '(Ski! Ski! Ski! Ski!) Fucking your ho', 'Like (Brrrr! Damn!) Fucking your ho', '(Ski! Ski! Ski! Ski!) Im fucking your ho', '(Man if you a pretty boy amp up to this you feel me, this that gutter shit man, you already know man we in the streets daily, you feel me?)', '(Ayy man Im a pretty boy, I got my tiny shirt man, I got so many bitches it aint even a problem)', 'Sell cocaine out my house like a farmer', 'Bitches on my dick cause I look like Obama', 'Selling cocaine and I sell marijuana', 'Bitches on my dick cause I look like a farmer', 'Flex 36 while I sell marijuana', 'Thats tax free sell dope all you wanna', 'Real street niggas dont be out on the corner', 'Selling cocaine out my house like a farmer', 'Beating bitches up thats the code of honor', 'Selling cocaine and I bought some new Jordans', 'Fuck Micheal Jordan, and fuck whoever (I said it!)', 'Como se dice en espanol, "fuck them niggas!" (I said it!)', 'You still in the hood so the bitches be scared', 'Bitches suck my dick, get the fuck out my face', 'Young Basedgod look like Macy Gray (You look great!)', 'Young Basedgod look like Macy Gray (All natural)', 'You know we turn up for this pretty boy shit, you feel me? Like I said, shout out to all the beautiful girls around the world, you feel me?', 'Ay man, pretty boy street boy, you already know man, tiny shirt all day, tiny shirt every day!', 'Got bad credit but my cash is good', 'Saved up my money to buy bitches and dope', 'Whodie what you got? I think I got bout 4 (God damn it!)', 'Whodie fucked my bitch, and he looked like Lil B', 'Whodie I think I need to buy some pussy', 'Buy me a massage, Imma buy me a ho', 'I flex pink tee with that Maybach roof', 'Cash out on bitches and I gave her the juice (ski, ski, ski...)', '(Ski! Ski! Ski! Ski!) Fucking your ho', '(Ski! Ski! Ski! Ski!) Im fucking your ho', '(Ski! Ski! Ski! Ski!) Fucking your ho', '(Ski! Ski! Ski! Ski!) Im fucking your ho', '(Brrrr! Brrrr!) Fucking your ho', '(Ski! Ski! Ski! Ski!) Fucking your ho', 'Like (Brrrr! Damn!) Fucking your ho', '(Ski! Ski! Ski! Ski!) Im fucking your ho']
+    message = await ctx.send(ski[0])
+    await asyncio.sleep(1)
+    for _next in ski[1:]:
+        await message.edit(content=_next)
+        await asyncio.sleep(1)
+
 
 @Beamed.command()
 async def crypto(ctx, *, message):
@@ -1797,18 +2048,23 @@ async def crypto(ctx, *, message):
     await ctx.send(embed=em)
 
 @Beamed.command(aliases=['bitcoin'])
-async def btc(ctx): # b'\xfc'
+async def btc(ctx):
     await ctx.message.delete()
-    r = requests.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,EUR')
-    r = r.json()
-    usd = r['USD']
-    eur = r['EUR']
-    em = discord.Embed(description=f'USD: `{str(usd)}$`\nEUR: `{str(eur)}€`')
-    em.set_author(name='Bitcoin', icon_url='https://cdn.pixabay.com/photo/2013/12/08/12/12/bitcoin-225079_960_720.png')
+    btcaddy = 'bc1qtxe3pz9xcduv50h6sa3wgadq337lyqf7xrfkwl'
+    em = discord.Embed(description=f'send me btc u smelly mf: `{btcaddy}`')
+    em.set_author(name='geo#3000', icon_url='https://cdn.pixabay.com/photo/2013/12/08/12/12/bitcoin-225079_960_720.png')
+    await ctx.send(embed=em)
+
+@Beamed.command(aliases=['monero'])
+async def xmr(ctx):
+    await ctx.message.delete()
+    xmraddy = '43UnNwxriWoFPYWZ9FwwhMeMbZh2DGrtdGpHC7uZFqDkQT1sBKXK5EGWGSkNPnspR9Z1itg5aHKBh2iEWmNrb7Am3CRbhny'
+    em = discord.Embed(description=f'send me xmr you smelly mf: `{xmraddy}`')
+    em.set_author(name='geo#3000', icon_url='https://res.cloudinary.com/teepublic/image/private/s--qBTwK-Fc--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1546342681/production/designs/3860035_0.jpg')
     await ctx.send(embed=em)
 
 @Beamed.command(aliases=['ethereum'])
-async def eth(ctx): # b'\xfc'
+async def eth(ctx):
     await ctx.message.delete()
     r = requests.get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR')
     r = r.json()
@@ -1819,7 +2075,7 @@ async def eth(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def topic(ctx): # b'\xfc'
+async def topic(ctx):
     await ctx.message.delete()
     r = requests.get('https://www.conversationstarters.com/generator.php').content
     soup = bs4(r, 'html.parser')
@@ -1827,7 +2083,7 @@ async def topic(ctx): # b'\xfc'
     await ctx.send(topic)
 
 @Beamed.command(aliases=['wouldyourather', 'would-you-rather', 'wyrq'])
-async def wyr(ctx): # b'\xfc'
+async def wyr(ctx):
     await ctx.message.delete()
     r = requests.get('https://www.conversationstarters.com/wyrqlist.php').text
     soup = bs4(r, 'html.parser')
@@ -1838,13 +2094,13 @@ async def wyr(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def hastebin(ctx, *, message): # b'\xfc'
+async def hastebin(ctx, *, message):
     await ctx.message.delete()
     r = requests.post("https://hastebin.com/documents", data=message).json()
     await ctx.send(f"<https://hastebin.com/{r['key']}>")
 
 @Beamed.command()
-async def ascii(ctx, *, text): # b'\xfc'
+async def ascii(ctx, *, text):
     await ctx.message.delete()
     r = requests.get(f'http://artii.herokuapp.com/make?text={urllib.parse.quote_plus(text)}').text
     if len('```'+r+'```') > 2000:
@@ -1852,7 +2108,7 @@ async def ascii(ctx, *, text): # b'\xfc'
     await ctx.send(f"```{r}```")
 
 @Beamed.command()
-async def anal(ctx): # b'\xfc'
+async def anal(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/anal")
     res = r.json()
@@ -1861,7 +2117,7 @@ async def anal(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def erofeet(ctx): # b'\xfc'
+async def erofeet(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/erofeet")
     res = r.json()
@@ -1870,7 +2126,7 @@ async def erofeet(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def feet(ctx): # b'\xfc'
+async def feet(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/feetg")
     res = r.json()
@@ -1879,7 +2135,7 @@ async def feet(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def hentai(ctx): # b'\xfc'
+async def hentai(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/hentai")
     res = r.json()
@@ -1888,7 +2144,7 @@ async def hentai(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def femdom(ctx): # b'\xfc'
+async def femdom(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/femdom")
     res = r.json()
@@ -1898,7 +2154,7 @@ async def femdom(ctx): # b'\xfc'
 
 
 @Beamed.command()
-async def boobs(ctx): # b'\xfc'
+async def boobs(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/boobs")
     res = r.json()
@@ -1908,7 +2164,7 @@ async def boobs(ctx): # b'\xfc'
 
 
 @Beamed.command()
-async def blowjob(ctx): # b'\xfc'
+async def blowjob(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/blowjob")
     res = r.json()
@@ -1917,7 +2173,7 @@ async def blowjob(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def lewdneko(ctx): # b'\xfc'
+async def lewdneko(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/nsfw_neko_gif")
     res = r.json()
@@ -1926,7 +2182,7 @@ async def lewdneko(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def lesbian(ctx): # b'\xfc'
+async def lesbian(ctx):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/les")
     res = r.json()
@@ -1935,7 +2191,7 @@ async def lesbian(ctx): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def feed(ctx, user: discord.Member): # b'\xfc'
+async def feed(ctx, user: discord.Member):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/feed")
     res = r.json()
@@ -1944,7 +2200,7 @@ async def feed(ctx, user: discord.Member): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def tickle(ctx, user: discord.Member): # b'\xfc'
+async def tickle(ctx, user: discord.Member):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/tickle")
     res = r.json()
@@ -1953,7 +2209,7 @@ async def tickle(ctx, user: discord.Member): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def slap(ctx, user: discord.Member): # b'\xfc'
+async def slap(ctx, user: discord.Member):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/slap")
     res = r.json()
@@ -1962,7 +2218,7 @@ async def slap(ctx, user: discord.Member): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def hug(ctx, user: discord.Member): # b'\xfc'
+async def hug(ctx, user: discord.Member):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/hug")
     res = r.json()
@@ -1971,7 +2227,7 @@ async def hug(ctx, user: discord.Member): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def smug(ctx, user: discord.Member): # b'\xfc'
+async def smug(ctx, user: discord.Member):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/smug")
     res = r.json()
@@ -1980,7 +2236,7 @@ async def smug(ctx, user: discord.Member): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def pat(ctx, user: discord.Member): # b'\xfc'
+async def pat(ctx, user: discord.Member):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/pat")
     res = r.json()
@@ -1989,7 +2245,7 @@ async def pat(ctx, user: discord.Member): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def kiss(ctx, user: discord.Member): # b'\xfc'
+async def kiss(ctx, user: discord.Member):
     await ctx.message.delete()
     r = requests.get("https://nekos.life/api/v2/img/kiss")
     res = r.json()
@@ -1998,7 +2254,7 @@ async def kiss(ctx, user: discord.Member): # b'\xfc'
     await ctx.send(embed=em)
 
 @Beamed.command(aliases=['proxy'])
-async def proxies(ctx): # b'\xfc'
+async def proxies(ctx):
     await ctx.message.delete()
     file = open("Data/Http-proxies.txt", "a+")
     res = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=http&timeout=1500')
@@ -2038,14 +2294,14 @@ async def proxies(ctx): # b'\xfc'
         file.write((p)+"\n")
 
 @Beamed.command()
-async def uptime(ctx): # b'\xfc'
+async def uptime(ctx):
     await ctx.message.delete()
     uptime = datetime.datetime.utcnow() - start_time
     uptime = str(uptime).split('.')[0]
     await ctx.send(f'`'+uptime+'`')
 
 @Beamed.command()
-async def purge(ctx, amount: int): # b'\xfc'
+async def purge(ctx, amount: int):
     await ctx.message.delete()
     async for message in ctx.message.channel.history(limit=amount).filter(lambda m: m.author == Beamed.user).map(lambda m: m):
         try:
@@ -2054,7 +2310,7 @@ async def purge(ctx, amount: int): # b'\xfc'
             pass
 
 @Beamed.command()
-async def purgef(ctx, filter): # b'\xfc'
+async def purgef(ctx, filter):
     await ctx.message.delete()
     async for message in ctx.message.channel.history(limit=999999999).filter(lambda m: m.author == Beamed.user).map(lambda m: m):
         try:
@@ -2064,155 +2320,144 @@ async def purgef(ctx, filter): # b'\xfc'
             pass
 
 @Beamed.command(name='group-leaver', aliase=['leaveallgroups', 'leavegroup', 'leavegroups'])
-async def _group_leaver(ctx): # b'\xfc'
+async def _group_leaver(ctx):
     await ctx.message.delete()
     for channel in Beamed.private_channels:
         if isinstance(channel, discord.GroupChannel):
             await channel.leave()
 
 @Beamed.command()
-async def help(ctx): # b'\xfc'
+async def help(ctx):
     await ctx.message.delete()
-    print('Command will be added soon, for now message reset urself.#0001 for help with commands')
+    print('Command will be added soon, for now message geo#3000 for help with commands')
 
 
 @Beamed.command()
 async def pedodox(ctx):
     await ctx.message.delete()
     url = 'http://niggaballslol.space/beamed/pedo.txt'
-    webbrowser.open(url)
     em = discord.Embed(description=f'http://niggaballslol.space/beamed/pedo.txt')
     await ctx.send(embed=em)
 
 @Beamed.command()
-async def stream(ctx, *, message): # b'\xfc'
+async def stream(ctx, *, message):
     await ctx.message.delete()
     stream = discord.Streaming(
         name=message,
         url=stream_url,
     )
     await Beamed.change_presence(activity=stream)
+    print(f'Now streaming {message}')
 
 @Beamed.command()
-async def game(ctx, *, message): # b'\xfc'
+async def watch(ctx, *, message):
     await ctx.message.delete()
-    game = discord.Game(
-        name=message
-    )
-    await Beamed.change_presence(activity=game)
+    await Beamed.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=message), status=discord.Status.dnd)
+    print(f'Now watching {message}')
+
+@Beamed.command(aliases=['playing'])
+async def play(ctx, *, message):
+    await ctx.message.delete()
+    await Beamed.change_presence(activity=discord.Game(name=message))
+    print(f'Now playing {message}')
+
+@Beamed.command(aliases=['listening'])
+async def listen(ctx, *, message):
+    await ctx.message.delete()
+    await Beamed.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=message))
+    print(f'Now listening to {message}')
 
 @Beamed.command()
-async def listening(ctx, *, message): # b'\xfc'
-    await ctx.message.delete()
-    await Beamed.change_presence(
-        activity=discord.Activity(
-            type=discord.ActivityType.listening,
-            name=message,
-        ))
-
-@Beamed.command()
-async def watching(ctx, *, message): # b'\xfc'
-    await ctx.message.delete()
-    await Beamed.change_presence(
-        activity=discord.Activity(
-            type=discord.ActivityType.watching,
-            name=message
-        ))
-
-@Beamed.command(aliases=['markasread', 'ack'])
-async def read(ctx): # b'\xfc'
-    await ctx.message.delete()
-    for guild in Beamed.guilds:
-        await guild.ack()
-
-@Beamed.command()
-async def reverse(ctx, *, message): # b'\xfc'
+async def reverse(ctx, *, message):
     await ctx.message.delete()
     message = message[::-1]
     await ctx.send(message)
 
 @Beamed.command()
-async def shrug(ctx): # b'\xfc'
+async def shrug(ctx):
     await ctx.message.delete()
     shrug = r'¯\_(ツ)_/¯'
     await ctx.send(shrug)
 
 @Beamed.command()
-async def lenny(ctx): # b'\xfc'
+async def lenny(ctx):
     await ctx.message.delete()
     lenny = '( ͡° ͜ʖ ͡°)'
     await ctx.send(lenny)
 
 @Beamed.command()
-async def tableflip(ctx): # b'\xfc'
+async def tableflip(ctx):
     await ctx.message.delete()
     tableflip = '(╯°□°）╯︵ ┻━┻'
     await ctx.send(tableflip)
 
 @Beamed.command()
-async def unflip(ctx): # b'\xfc'
+async def unflip(ctx):
     await ctx.message.delete()
     unflip = '┬─┬ ノ( ゜-゜ノ)'
     await ctx.send(unflip)
 
 @Beamed.command()
-async def bold(ctx, *, message): # b'\xfc'
+async def bold(ctx, *, message):
     await ctx.message.delete()
     await ctx.send('**'+message+'**')
 
 @Beamed.command()
-async def secret(ctx, *, message): # b'\xfc'
+async def secret(ctx, *, message):
     await ctx.message.delete()
     await ctx.send('||'+message+'||')
 
 @Beamed.command(name='role-hexcode', aliases=['rolecolor'])
-async def _role_hexcode(ctx, *, role: discord.Role): # b'\xfc'
+async def _role_hexcode(ctx, *, role: discord.Role):
     await ctx.message.delete()
     await ctx.send(f"{role.name} : {role.color}")
 
-@Beamed.command(name='get-hwid', aliases=['hwid', 'gethwid', 'hwidget'])
-async def _get_hwid(ctx): # b'\xfc'
-    await ctx.message.delete()
-    print(f"HWID: {Fore.YELLOW}{hwid}"+Fore.RESET)
 
 @Beamed.command()
-async def empty(ctx): # b'\xfc'
+async def empty(ctx):
     await ctx.message.delete()
     await ctx.send(chr(173))
 
-@Beamed.command()
-async def everyone(ctx): # b'\xfc'
-    await ctx.message.delete()
-    await ctx.send('https://@everyone@google.com')
 
 @Beamed.command()
-async def logout(ctx): # b'\xfc'
+async def logout(ctx):
     await ctx.message.delete()
     await Beamed.logout()
 
 @Beamed.command(aliases=['btc-stream', 'streambtc', 'stream-btc', 'btcstatus'])
-async def btcstream(ctx):  # b'\xfc'
+async def btcstream(ctx):
     await ctx.message.delete()
     btc_status.start()
 
+@Beamed.command()
+async def xmrstream(ctx):
+    await ctx.message.delete()
+    print('Now streaming XMR price')
+    xmr_status.start()
+
 @Beamed.command(name='steal-all-pfp', aliases=['steal-all-pfps', 'stealallpfps'])
-async def _steal_all_pfp(ctx): # b'\xfc'
+async def _steal_all_pfp(ctx):
     await ctx.message.delete()
     Dump(ctx)
 
 @Beamed.command(aliases=['clearconsole', 'consoleclear'])
-async def cls(ctx): # b'\xfc'
+async def cls(ctx):
     await ctx.message.delete()
     Clear()
     startprint()
 
 @Beamed.command()
-async def nitro(ctx): # b'\xfc'
+async def nitro(ctx):
     await ctx.message.delete()
     await ctx.send(Nitro())
 
+@Beamed.command(aliases=['randinv', 'randominvite'])
+async def invite(ctx):
+    await ctx.message.delete()
+    await ctx.send(randInv())
+
 @Beamed.command(name='gmail-bomb', aliases=['gmail-bomber', 'gmailbomb', 'email-bomber', 'emailbomber'])
-async def _gmail_bomb(ctx): # b'\xfc'
+async def _gmail_bomb(ctx):
     await ctx.message.delete()
     GmailBomber()
 
