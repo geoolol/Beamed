@@ -12,3 +12,5 @@
 - A: This error occured on an old installation of discord.py to fix simply run :`pip install -U discord.py` this updates discord.py!
 - Q: **`Cannot run the file even though the batch files gave no errors`**
 - A: Install Python from the microsoft store and run the file through cmd with the command 'python Beamed.py' whilst in the Beamed directory, but make sure you have python 3.8
+- Q: **`IP lookup fails`**
+- A: Create an account on https://extreme-ip-lookup.com and get a key to put in the config file
