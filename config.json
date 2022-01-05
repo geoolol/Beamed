@@ -8,11 +8,12 @@
   "slotbot_sniper": true,
   "privnote_sniper": true,
 
-  "stream_url": "https://twitch.tv/yourmumhitsme",
+  "stream_url": "https://twitch.tv/beamedgeo",
   "tts_language": "en",
 
   "bitly_key": "bitly-key-here",
   "cat_key": "cat-key-here",
   "weather_key": "weather-key-here",
-  "cuttly_key": "cuttly-key-here"
+  "cuttly_key": "cuttly-key-here",
+  "ip_key": "extreme-ip-lookup-key-here
 }
