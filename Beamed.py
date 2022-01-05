@@ -47,6 +47,7 @@ bitly_key = config.get('bitly_key')
 cat_key = config.get('cat_key')
 weather_key = config.get('weather_key')
 cuttly_key = config.get('cuttly_key')
+ip_key = config.get('ip_key')
 
 
 
@@ -1269,7 +1270,7 @@ async def _ebay_view(ctx, url, views: int):
 @Beamed.command(aliases=['geolocate', 'iptogeo', 'iptolocation', 'ip2geo', 'ip'])
 async def geoip(ctx, *, ipaddr: str = '1.3.3.7'):
     await ctx.message.delete()
-    r = requests.get(f'http://extreme-ip-lookup.com/json/{ipaddr}?key=TP0EmmjmQXVBzpFccynf')
+    r = requests.get(f'http://extreme-ip-lookup.com/json/{ipaddr}?key={ip_key}')
     geo = r.json()
     em = discord.Embed()
     fields = [
