@@ -14,3 +14,5 @@
 - A: Install Python from the microsoft store and run the file through cmd with the command 'python Beamed.py' whilst in the Beamed directory, but make sure you have python 3.8
 - Q: **`IP lookup fails`**
 - A: Create an account on https://extreme-ip-lookup.com and get a key to put in the config file
+
+Any other errors message me on discord: `geo#3000`
